@@ -7,7 +7,7 @@ def rgbToHex(r, g, b):
     return f'#{r:02x}{g:02x}{b:02x}'
 
 window = tk.Tk()
-window.title("Heidi needs more food ideas")
+window.title("Heidi's food ideas")
 
 width = 650
 height = 670
@@ -22,15 +22,13 @@ window.geometry(f"{width}x{height}+{x}+{y}")
 window_bgColor_hex = rgbToHex(229,204,255)
 window.configure(background=window_bgColor_hex)
 
-#photo = PhotoImage(file="giphy.gif")
 photo = AnimatedGIF(window, "200w.gif", bg_color=window_bgColor_hex)
-#photo = AnimatedGIF(window, "77.gif", bg_color=window_bgColor_hex)
 
 photo.pack()
 
 add_font = ("Comic Sans MS", 15, "bold") 
-add_fgColor_hex = rgbToHex(200,130,225) #(56,31,78)
-add_label = Label(window, text="Enter your ZIP code: ", bg=window_bgColor_hex, \
+add_fgColor_hex = rgbToHex(200,130,225)
+add_label = Label(window, text="How hungry are you?", bg=window_bgColor_hex, \
                   fg=add_fgColor_hex, font=add_font)
 add_label.pack()
 
@@ -140,7 +138,7 @@ def click():
     addressOutput.insert(END, " " + randomAddress)    
     
 label_font = ("Comic Sans MS", 15, "bold")
-sctnLabel_fgColor_hex = rgbToHex(173,121,225) #(56,31,78)
+sctnLabel_fgColor_hex = rgbToHex(173,121,225)
 
 section_label = Label(window, text="What type of food are you feeling right now? "\
                       , bg=window_bgColor_hex, fg=sctnLabel_fgColor_hex, font=label_font)
@@ -148,7 +146,7 @@ section_label = Label(window, text="What type of food are you feeling right now?
 section_label.pack()
 
 radio_font = ("Comic Sans MS", 15, "bold")  
-radio_fgColor_hex = rgbToHex(240,109,166) #(56,31,78)
+radio_fgColor_hex = rgbToHex(240,109,166)
 sections_var = IntVar()
 
 radio1 = Radiobutton(window, text="American Food", font=radio_font, \
@@ -200,7 +198,7 @@ submit_button = Button(window, text="Accio", font=button_font, width=3, \
 submit_button.place(x=294, y=510)
 
 text_font = Font(family="Comic Sans MS", size=14, weight="bold") 
-text_fgColor_hex = rgbToHex(102,102,102) #(255,117,182) 
+text_fgColor_hex = rgbToHex(102,102,102) 
 text_bgColor_hex = rgbToHex(255,204,229)
 
 output = Text(window, font=text_font, width=41, height=1, bg=text_bgColor_hex,\
