@@ -3,16 +3,12 @@ from animatedGIF_class import *
 from tkinter.font import Font
 import random
 
-# Function to convert RGB to Hexadecimal
 def rgbToHex(r, g, b):
     return f'#{r:02x}{g:02x}{b:02x}'
 
-
-# Create an object of the Tk class
 window = tk.Tk()
 window.title("Heidi needs more food ideas")
 
-# Center the window
 width = 650
 height = 670
 screen_width = window.winfo_screenwidth()
@@ -23,30 +19,25 @@ y = (screen_height - height) // 2
 
 window.geometry(f"{width}x{height}+{x}+{y}")
 
-# Window BG color
 window_bgColor_hex = rgbToHex(229,204,255)
 window.configure(background=window_bgColor_hex)
 
-# Add a photo
 #photo = PhotoImage(file="giphy.gif")
 photo = AnimatedGIF(window, "200w.gif", bg_color=window_bgColor_hex)
 #photo = AnimatedGIF(window, "77.gif", bg_color=window_bgColor_hex)
 
 photo.pack()
 
-# Add a label
 add_font = ("Comic Sans MS", 15, "bold") 
 add_fgColor_hex = rgbToHex(200,130,225) #(56,31,78)
 add_label = Label(window, text="Enter your ZIP code: ", bg=window_bgColor_hex, \
                   fg=add_fgColor_hex, font=add_font)
 add_label.pack()
 
-#Text field
 textEntry = Entry(window, width=15, bg=window_bgColor_hex, \
                   fg=add_fgColor_hex, font=add_font)
 textEntry.pack()
 
-# click user-defined function. Implement it before calling.
 def click():
     foodOptionsDict = {
     1: {"Starbucks": {"2701 Harbor Blvd Ste D1, Costa Mesa, CA 92626", \
@@ -141,21 +132,6 @@ def click():
     
     addressSet = foodOptionsDict[userSelected][randomRastaurantKey]
     randomAddress = random.choice(list(addressSet))   
-    ##### ask for user's address so I can return a closer address #####
-    
-    ## ocZIP = 906xx, 907xx, 926xx, 927xx, 928xx-92899
-    ## laZIP = 90001 to 90899
-    #try: 
-        #userZIPcode = int(textEntry.get())
-        #if 90001 <= userZIPcode <= 90899:  # LA county
-            ##return la county
-        #elif 90620 <= userZIPcode <= 92899: # OC
-            ##return orange county
-        
-    #except: 
-        ## if user didn't input correct ZIP code
-        ## a word, or not correct len, outside the range...
-        ## "The ZIP code doesn't exist"
    
     output.delete('1.0', END)
     output.insert(END, " " + randomRastaurantKey)
@@ -163,8 +139,6 @@ def click():
     addressOutput.delete('1.0', END)
     addressOutput.insert(END, " " + randomAddress)    
     
-
-# Add Radiobuttons
 label_font = ("Comic Sans MS", 15, "bold")
 sctnLabel_fgColor_hex = rgbToHex(173,121,225) #(56,31,78)
 
@@ -220,47 +194,23 @@ radio8.place(x=360, y=380)
 radio9.place(x=360, y=420)
 radio10.place(x=360, y=460)
 
-
-#radio1.pack()
-#radio2.pack()
-#radio3.pack()
-#radio4.pack()
-#radio5.pack()
-#radio6.pack()
-#radio7.pack()
-#radio8.pack()
-#radio9.pack()
-
-
-# Add a Button, Trigger the button
 button_font = ("Comic Sans MS", 15, "bold")
 submit_button = Button(window, text="Accio", font=button_font, width=3, \
                        height=1, command=click)
-#submit_button.pack()
 submit_button.place(x=294, y=510)
 
-# Add a Text Area
 text_font = Font(family="Comic Sans MS", size=14, weight="bold") 
 text_fgColor_hex = rgbToHex(102,102,102) #(255,117,182) 
 text_bgColor_hex = rgbToHex(255,204,229)
 
 output = Text(window, font=text_font, width=41, height=1, bg=text_bgColor_hex,\
               fg=text_fgColor_hex, insertbackground = "white") 
-#output.pack()
 output.place(x=146, y=550)
 
 
 addressOutput = Text(window, font=text_font, width=41, height=1, bg=text_bgColor_hex,\
               fg=text_fgColor_hex, insertbackground = "white") 
 
-#addressOutput.pack()
 addressOutput.place(x=146, y=580)
 
-# Customizing Cursor Color
-
-
-
-
-
-# Start the Tkinter event loop
 window.mainloop()
