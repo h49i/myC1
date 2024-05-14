@@ -30,11 +30,12 @@ add_font = ("Comic Sans MS", 15, "bold")
 add_fgColor_hex = rgbToHex(200,130,225)
 add_label = Label(window, text="How hungry are you?", bg=window_bgColor_hex, \
                   fg=add_fgColor_hex, font=add_font)
-add_label.pack()
+add_label.place(x=240, y=210) #############
+
 
 textEntry = Entry(window, width=15, bg=window_bgColor_hex, \
                   fg=add_fgColor_hex, font=add_font)
-textEntry.pack()
+textEntry.place(x=245, y=245) #############
 
 def click():
     foodOptionsDict = {
@@ -60,7 +61,11 @@ def click():
                       "1370 Fullerton Rd #105, Rowland Heights, CA 91748"},\
         "Luyu Dumplings": {"17980 Castleton St, City of Industry, CA 91748"},\
         "Mountain House": {"18888 Labin Ct C101, Rowland Heights, CA 91748"}}, ## Chinese
-    3: { "The India Cafe": { "528 W 19th St Costa Mesa, CA 92627" } }, ## Indian\
+    3: { "The India Cafe": { "528 W 19th St Costa Mesa, CA 92627" },\
+         "Urban Punjab The Royal Kitchen": {"12549 Harbor Blvd, Garden Grove, CA 92840"},\
+         "Rangeen Kitchen": {"28241 Crown Valley Pkwy Suite G, Laguna Niguel, CA 92677"},\
+         "Green Chilis": {"Facing CHEVORLET, 1500 Adams Ave #100A, Costa Mesa, CA 92626"},\
+         "Tandoori India Cuisine": {"3940 S Bristol St #110A, Santa Ana, CA 92704"} }, ## Indian\
     4: { "Angelina's Pizzeria Napoletana": {"8573 Irvine Center Dr, Irvine, CA 92618"},\
          "ZeroZero39 Pizzeria": {"221 Main St D, Huntington Beach, CA 92648"}, \
          "Cosmo's Italian Kitchen": {"28562 Oso Pkwy # L, Rancho Santa Margarita, CA 92688"},\
@@ -143,7 +148,8 @@ sctnLabel_fgColor_hex = rgbToHex(173,121,225)
 section_label = Label(window, text="What type of food are you feeling right now? "\
                       , bg=window_bgColor_hex, fg=sctnLabel_fgColor_hex, font=label_font)
 
-section_label.pack()
+section_label.place(x=140, y=290)
+
 
 radio_font = ("Comic Sans MS", 15, "bold")  
 radio_fgColor_hex = rgbToHex(240,109,166)
@@ -180,22 +186,22 @@ radio10 = Radiobutton(window, text="just tell me", font=radio_font, \
                      fg=radio_fgColor_hex, bg=window_bgColor_hex, \
                      variable=sections_var, value=10)
 
-radio1.place(x=140, y=300)
-radio2.place(x=140, y=340)
-radio3.place(x=140, y=380)
-radio4.place(x=140, y=420)
-radio5.place(x=140, y=460)
+radio1.place(x=140, y=330)
+radio2.place(x=140, y=370)
+radio3.place(x=140, y=410)
+radio4.place(x=140, y=450)
+radio5.place(x=140, y=490)
 
-radio6.place(x=360, y=300)
-radio7.place(x=360, y=340)
-radio8.place(x=360, y=380)
-radio9.place(x=360, y=420)
-radio10.place(x=360, y=460)
+radio6.place(x=360, y=330)
+radio7.place(x=360, y=370)
+radio8.place(x=360, y=410)
+radio9.place(x=360, y=450)
+radio10.place(x=360, y=490)
 
 button_font = ("Comic Sans MS", 15, "bold")
 submit_button = Button(window, text="Accio", font=button_font, width=3, \
                        height=1, command=click)
-submit_button.place(x=294, y=510)
+submit_button.place(x=294, y=534)
 
 text_font = Font(family="Comic Sans MS", size=14, weight="bold") 
 text_fgColor_hex = rgbToHex(102,102,102) 
@@ -203,12 +209,12 @@ text_bgColor_hex = rgbToHex(255,204,229)
 
 output = Text(window, font=text_font, width=41, height=1, bg=text_bgColor_hex,\
               fg=text_fgColor_hex, insertbackground = "white") 
-output.place(x=146, y=550)
+output.place(x=146, y=576)
 
 
 addressOutput = Text(window, font=text_font, width=41, height=1, bg=text_bgColor_hex,\
               fg=text_fgColor_hex, insertbackground = "white") 
 
-addressOutput.place(x=146, y=580)
+addressOutput.place(x=146, y=606)
 
 window.mainloop()
